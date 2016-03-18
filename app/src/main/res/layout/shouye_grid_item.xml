@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="#F8F4EC">
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_marginLeftPercent="4%"
+        app:layout_marginTopPercent="1%">
+        <TextView
+            android:id="@+id/shou_text_top"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:textColor="#C6DCD3"/>
+
+        <TextView
+            android:id="@+id/shouye_text_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:textColor="#615E59"
+            app:layout_marginTopPercent="1%"/>
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <ImageView
+        android:id="@+id/shouye_grid_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="40%"
+        app:layout_marginTopPercent="0.1%"
+        app:layout_marginLeftPercent="18%" />
+</com.zhy.android.percent.support.PercentLinearLayout>

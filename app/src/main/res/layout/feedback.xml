@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请留下您的联系方式"
+        android:id="@+id/information_edt"
+        android:inputType="number"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        />
+    <EditText
+        android:id="@+id/content_edt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:hint="欢迎大家吐槽"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_feedback"
+        android:layout_marginTop="2dp"
+        android:onClick="onClick"
+        android:textColor="#FFFFFF"
+        android:text="吐  槽"
+        android:background="#3A9E5E"/>
+</LinearLayout>

@@ -8,11 +8,26 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-        <com.bigkoo.convenientbanner.ConvenientBanner
-            android:id="@+id/conven_school_history"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_heightPercent="35%"
-            app:canLoop="true">
-        </com.bigkoo.convenientbanner.ConvenientBanner>
+    <com.bigkoo.convenientbanner.ConvenientBanner
+        android:id="@+id/conven_school_history"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:canLoop="true"
+        app:layout_heightPercent="35%"></com.bigkoo.convenientbanner.ConvenientBanner>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="3%" />
+
+    <GridView
+        android:id="@+id/shouye_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        app:layout_heightPercent="30%"></GridView>
 </com.zhy.android.percent.support.PercentLinearLayout>
