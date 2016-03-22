@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import cn.bmob.v3.Bmob;
+
 /**
  * 用于初始化Bomb，初始化一些资源
  * Created by hjs on 2015/11/7.
@@ -18,6 +21,8 @@ public class BaseActivity extends Activity{
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setDisplayShowHomeEnabled(true);
+
+        Bmob.initialize(this,APPID);
     }
 
     @Override
