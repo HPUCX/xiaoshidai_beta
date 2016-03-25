@@ -13,15 +13,16 @@ import android.widget.ListView;
 import com.school.xiaoshidai.adapter.MyselfAdapter;
 import com.school.xiaoshidai.bean.MyselfBean;
 import com.school.xiaoshidi.ContactUs;
-import com.school.xiaoshidi.SendFeedBack;
 import com.school.xiaoshidi.MainActivity;
 import com.school.xiaoshidi.R;
+import com.school.xiaoshidi.SendFeedBack;
 import com.school.xiaoshidi.Setting;
-import com.school.xiaoshidi.Update;
 import com.school.xiaoshidi.UserManger;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.update.BmobUpdateAgent;
 
 /**
  * Created by hjs on 2016/3/12.
@@ -47,10 +48,10 @@ public class MySelf extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent=new Intent();
-                switch (position){
+                Intent intent = new Intent();
+                switch (position) {
                     case 0:
-                        intent.setClass((MainActivity)getActivity(), UserManger.class);
+                        intent.setClass((MainActivity) getActivity(), UserManger.class);
                         startActivity(intent);
                         break;
                     case 1:
@@ -58,15 +59,15 @@ public class MySelf extends Fragment {
                         startActivity(intent);
                         break;
                     case 2:
-                        intent.setClass((MainActivity)getActivity(), ContactUs.class);
+                        intent.setClass((MainActivity) getActivity(), ContactUs.class);
                         startActivity(intent);
                         break;
                     case 3:
-                        intent.setClass((MainActivity)getActivity(), Update.class);
-                        startActivity(intent);
+                        //手动更新
+                        update_byHand();
                         break;
                     case 4:
-                        intent.setClass((MainActivity)getActivity(), Setting.class);
+                        intent.setClass((MainActivity) getActivity(), Setting.class);
                         startActivity(intent);
                         break;
                 }
@@ -74,6 +75,10 @@ public class MySelf extends Fragment {
         });
     }
 
+    //手动更新
+    void update_byHand(){
+        BmobUpdateAgent.forceUpdate(getActivity());
+    }
     void initMyself() {
         MyselfBean myUser = new MyselfBean("账号管理", R.mipmap.myuser,R.mipmap.right_arrow);
         myselfBeanList.add(myUser);

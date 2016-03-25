@@ -52,7 +52,6 @@
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
-        <activity android:name=".Update"></activity>
         <activity android:name=".SendFeedBack"></activity>
         <activity android:name=".ContactUs"></activity>
         <activity android:name=".Setting"></activity>

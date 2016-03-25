@@ -71,7 +71,7 @@ public class ShouYe extends Fragment {
         BmobQuery<ViewPager_Image> query = new BmobQuery<>();
         query.addWhereNotEqualTo("objectId", "ud");
         query.order("createdAt");
-        query.setMaxCacheAge(TimeUnit.MILLISECONDS.toSeconds(60));
+        query.setMaxCacheAge(TimeUnit.DAYS.toMillis(1));
         //判断是否有缓存，该方法必须放在查询条件（如果有的话）都设置完之后再来调用才有效，就像这里一样。
         boolean isCache = query.hasCachedResult(getActivity(), ViewPager_Image.class);
         if (isCache) {

@@ -25,8 +25,11 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.listener.BmobUpdateListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
+import cn.bmob.v3.update.UpdateStatus;
 
 public class MainActivity extends FragmentActivity {
 
@@ -73,9 +76,24 @@ public class MainActivity extends FragmentActivity {
         //initAppVersion方法适合开发者调试自动更新功能时使用，
         // 一旦AppVersion表在后台创建成功，建议屏蔽或删除此方法，否则会生成多行记录。
         //BmobUpdateAgent.initAppVersion(this);
+
+        //对更新进行监听
+        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+            @Override
+            public void onUpdateReturned(int updateStatus, UpdateResponse updateResponse) {
+                if (updateStatus == UpdateStatus.Yes) {
+                    Toast.makeText(MainActivity.this, "亲，有新版本更新了", Toast.LENGTH_SHORT).show();
+                } else if (updateStatus == UpdateStatus.No) {
+                    Toast.makeText(MainActivity.this, "已经是最新版了", Toast.LENGTH_SHORT).show();
+                } else if (updateStatus == UpdateStatus.IGNORED) {
+                    Toast.makeText(MainActivity.this, "您已忽略改版本", Toast.LENGTH_SHORT).show();
+                } else if (updateStatus == UpdateStatus.TimeOut) {
+                    Toast.makeText(MainActivity.this, "您的网络好慢啊,请稍后再试", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         //自动更新
         BmobUpdateAgent.update(this);
-
         //获取设备信息
         acquireDevice();
         //初始化view
@@ -146,6 +164,7 @@ public class MainActivity extends FragmentActivity {
     //再按一次退出
     // 双击退出
     private long exitTime = 0;
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
