@@ -13,6 +13,8 @@
     <!-- ActionBar 样式 -->
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#3A9E5E</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <!--设置ActionBar的标题的样式-->
         <item name="android:titleTextStyle">@style/ActionBarTextStyle</item>
     </style>

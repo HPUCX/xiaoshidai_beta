@@ -25,6 +25,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
     compile 'com.bigkoo:convenientbanner:2.0.5'
+    //用于沉浸状态栏
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     //用于百分比布局
     compile 'com.zhy:percent-support-extends:1.0.1'
     //以下SDK开发者请根据需要自行选择
