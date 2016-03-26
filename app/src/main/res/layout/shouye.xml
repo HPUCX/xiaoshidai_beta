@@ -29,5 +29,53 @@
         android:horizontalSpacing="15dp"
         android:numColumns="2"
         android:verticalSpacing="10dp"
-        app:layout_heightPercent="30%"></GridView>
+        app:layout_heightPercent="30%">
+
+    </GridView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="3%" />
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        app:layout_heightPercent="5%">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="#3A9E5E"
+            app:layout_heightPercent="60%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="热点"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="原来大家都在尝"
+            android:textColor="#3A9E5E"
+            android:textSize="30sp" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/shouye_PullToRefreshListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="#F7F4EF"
+        android:dividerHeight="2dp"/>
+
 </com.zhy.android.percent.support.PercentLinearLayout>

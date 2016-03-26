@@ -13,6 +13,7 @@ import android.widget.GridView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -45,7 +46,7 @@ public class ShouYe extends Fragment {
     private GridView mGridView;
     private List<ShouyeGridBean> gridBeanList = new ArrayList<>();
     private ShouyeGridAdapter shouyeGridAdapter;
-
+    private PullToRefreshListView mPullToRefreshListView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,8 @@ public class ShouYe extends Fragment {
         acquireImage();
         convenientBanner = (ConvenientBanner) this.getView().findViewById(R.id.conven_shouye);
         mGridView = (GridView) this.getView().findViewById(R.id.shouye_grid);
+
+        mPullToRefreshListView=(PullToRefreshListView)this.getView().findViewById(R.id.shouye_PullToRefreshListView);
 
         //初始化gridview
         initGridView();
