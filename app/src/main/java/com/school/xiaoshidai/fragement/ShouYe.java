@@ -20,9 +20,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.school.xiaoshidai.adapter.ShouyeGridAdapter;
+import com.school.xiaoshidai.adapter.ShouyeListViewAdapter;
 import com.school.xiaoshidai.bean.ShouyeGridBean;
+import com.school.xiaoshidai.bean.ShouyeListViewBean;
 import com.school.xiaoshidai.bean.ViewPager_Image;
 import com.school.xiaoshidai.view.NetworkImageViewHolder;
+import com.school.xiaoshidi.MainActivity;
 import com.school.xiaoshidi.R;
 
 import java.util.ArrayList;
@@ -47,6 +50,8 @@ public class ShouYe extends Fragment {
     private List<ShouyeGridBean> gridBeanList = new ArrayList<>();
     private ShouyeGridAdapter shouyeGridAdapter;
     private PullToRefreshListView mPullToRefreshListView;
+    private List<ShouyeListViewBean> shouyeListViewBeanList = new ArrayList<>();
+    private ShouyeListViewAdapter shouyeListViewAdapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,11 +70,23 @@ public class ShouYe extends Fragment {
 
         //初始化gridview
         initGridView();
-
         shouyeGridAdapter = new ShouyeGridAdapter(getActivity(), R.layout.shouye_grid_item, gridBeanList);
         mGridView.setAdapter(shouyeGridAdapter);
+
+        initListView();
+        shouyeListViewAdapter=new ShouyeListViewAdapter((MainActivity)getActivity(),R.layout.shouye_listview_item,shouyeListViewBeanList);
+        mPullToRefreshListView.setAdapter(shouyeListViewAdapter);
     }
 
+    void initListView(){
+        ShouyeListViewBean first=new ShouyeListViewBean("武汉热干面","理工的武汉味道,每次想到都会流口水。。。",R.mipmap.reganmian);
+        shouyeListViewBeanList.add(first);
+        ShouyeListViewBean second=new ShouyeListViewBean("圣代冰激凌","小伙伴们，夏天来了，有没有很想吃啊。。。。",R.mipmap.bingjilin);
+        shouyeListViewBeanList.add(second);
+        ShouyeListViewBean third=new ShouyeListViewBean("荷 包 蛋","鸡蛋是最有营养的，快来补充点营养吧。。。。",R.mipmap.xueyuan);
+        shouyeListViewBeanList.add(third);
+    }
+    
     public void acquireImage() {
         BmobQuery<ViewPager_Image> query = new BmobQuery<>();
         query.addWhereNotEqualTo("objectId", "ud");
@@ -93,8 +110,8 @@ public class ShouYe extends Fragment {
                      * 在本地获取到了地址后，为了保证能够正确的访问该图片，需要把双引号去掉
                      * 通过如下的方法
                      */
-                    String viewPagerString=viewPager_image.getContent();
-                    viewPagerString=viewPagerString.substring(1,viewPagerString.length()-1);
+                    String viewPagerString = viewPager_image.getContent();
+                    viewPagerString = viewPagerString.substring(1, viewPagerString.length() - 1);
 
                     netgroups.add(viewPagerString);
                     Log.d("hjs", viewPagerString);
@@ -174,7 +191,6 @@ public class ShouYe extends Fragment {
 
         return mView;
     }
-
 
 
     // 开始自动翻页

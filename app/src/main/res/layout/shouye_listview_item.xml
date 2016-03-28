@@ -10,34 +10,33 @@
         android:id="@+id/shouye_list_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_heightPercent="10%"
-        app:layout_widthPercent="40%"
-        app:layout_marginTopPercent="0.1%"
-        app:layout_marginLeftPercent="5%" />
+        app:layout_heightPercent="6%"
+        app:layout_widthPercent="20%"
+        app:layout_marginTopPercent="0.5%"
+        app:layout_marginLeftPercent="2%" />
     <com.zhy.android.percent.support.PercentLinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_marginLeftPercent="10%"
-        app:layout_marginTopPercent="1%">
+        app:layout_marginTopPercent="0.5%">
         <TextView
             android:id="@+id/shou_list_text_top"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="10sp"
+            app:layout_marginLeftPercent="20%"
+            android:textSize="15sp"
             android:textColor="#C6DCD3"/>
 
         <TextView
             android:id="@+id/shouye_list_text_bottom"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:layout_weight="1"
-            android:textColor="#615E59"
-            app:layout_marginTopPercent="1%"/>
+            app:layout_marginLeftPercent="4%"
+            android:textColor="#615E59" />
 
     </com.zhy.android.percent.support.PercentLinearLayout>
-
 
 </com.zhy.android.percent.support.PercentLinearLayout>

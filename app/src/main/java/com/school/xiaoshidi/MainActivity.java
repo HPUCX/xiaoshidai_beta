@@ -1,6 +1,7 @@
 package com.school.xiaoshidi;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -192,13 +193,12 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.update:
-
+                update_byHand();
                 break;
             case R.id.contact:
+                Intent contact_intent = new Intent(getApplicationContext(), SendFeedBack.class);
+                startActivity(contact_intent);
                 break;
-            case android.R.id.home:
-                finish();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -224,6 +224,10 @@ public class MainActivity extends FragmentActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    void update_byHand(){
+        BmobUpdateAgent.forceUpdate(MainActivity.this);
     }
 
     //由于手机的不同，ActionBar最右边的overflow按钮有时候显示，有时候不显示，解决办法
