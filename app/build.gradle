@@ -40,4 +40,6 @@ dependencies {
     compile project(':lib:pull')
     compile files('libs/afinal_0.5_bin.jar')
     compile files('E:/xiaoshidai/xiaoshidai/libs/universal-image-loader-1.9.5.jar')
+    compile files('E:/xiaoshidai/xiaoshidai/libs/open_sdk_r5043.jar')
+    compile files('E:/xiaoshidai/xiaoshidai/libs/mta-sdk-1.6.2.jar')
 }

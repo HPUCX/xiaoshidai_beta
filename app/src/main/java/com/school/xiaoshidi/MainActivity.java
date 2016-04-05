@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioGroup;
@@ -21,9 +20,6 @@ import com.school.xiaoshidai.fragement.Find;
 import com.school.xiaoshidai.fragement.MySelf;
 import com.school.xiaoshidai.fragement.ShouYe;
 import com.school.xiaoshidai.fragement.Sort;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.listener.BmobUpdateListener;
@@ -39,7 +35,9 @@ public class MainActivity extends FragmentActivity {
     private Sort mSort;
     private Find mFind;
     private MySelf mMyself;
-
+    //用于处理用户登陆
+//    String json = "";
+//    String from = "";
 
     public static String APPID = "3b72404152f4513f21733475e8c71a7c";
 
@@ -70,14 +68,13 @@ public class MainActivity extends FragmentActivity {
         getActionBar().setHomeButtonEnabled(false);
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setDisplayShowHomeEnabled(false);
-        //让overflow显示出来
-        setOverflowShowingAlways();
 
         Bmob.initialize(this, APPID);
         //initAppVersion方法适合开发者调试自动更新功能时使用，
         // 一旦AppVersion表在后台创建成功，建议屏蔽或删除此方法，否则会生成多行记录。
         //BmobUpdateAgent.initAppVersion(this);
 
+       // recieveLogin();
         //对更新进行监听
         BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
             @Override
@@ -100,7 +97,10 @@ public class MainActivity extends FragmentActivity {
         //初始化view
         initView();
     }
-
+//    void recieveLogin(){
+//        json = getIntent().getStringExtra("json");
+//        from = getIntent().getStringExtra("from");
+//    }
     public void initView() {
         mShouYe = new ShouYe();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_content, mShouYe).commit();
@@ -182,41 +182,17 @@ public class MainActivity extends FragmentActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-
-    /**
-     * overflow上面的各个功能
-     *
-     * @param item
-     * @return
-     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.update:
-                update_byHand();
+            case R.id.search:
+                startActivity(new Intent(this, SearchActivity.class));
                 break;
-            case R.id.contact:
-                Intent contact_intent = new Intent(getApplicationContext(), SendFeedBack.class);
-                startActivity(contact_intent);
-                break;
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    //让overflow中的选项显示图标
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
-            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                try {
-                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                } catch (Exception e) {
-                }
-            }
-        }
-        return super.onMenuOpened(featureId, menu);
     }
 
     @Override
@@ -224,21 +200,5 @@ public class MainActivity extends FragmentActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
-    }
-
-    void update_byHand(){
-        BmobUpdateAgent.forceUpdate(MainActivity.this);
-    }
-
-    //由于手机的不同，ActionBar最右边的overflow按钮有时候显示，有时候不显示，解决办法
-    private void setOverflowShowingAlways() {
-        try {
-            ViewConfiguration configuration = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            menuKeyField.setAccessible(true);
-            menuKeyField.setBoolean(configuration, false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

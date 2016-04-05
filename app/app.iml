@@ -98,7 +98,9 @@
     <orderEntry type="library" exported="" name="support-annotations-22.2.1" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.5" level="project" />
     <orderEntry type="library" exported="" name="convenientbanner-2.0.5" level="project" />
+    <orderEntry type="library" exported="" name="mta-sdk-1.6.2" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.2.1" level="project" />
+    <orderEntry type="library" exported="" name="open_sdk_r5043" level="project" />
     <orderEntry type="library" exported="" name="bmob-sdk-3.4.3" level="project" />
     <orderEntry type="library" exported="" name="bmob-push-0.6" level="project" />
     <orderEntry type="library" exported="" name="afinal_0.5_bin" level="project" />

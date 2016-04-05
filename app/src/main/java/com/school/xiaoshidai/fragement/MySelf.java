@@ -14,10 +14,11 @@ import com.school.xiaoshidai.adapter.MyselfAdapter;
 import com.school.xiaoshidai.bean.MyselfBean;
 import com.school.xiaoshidi.ContactUs;
 import com.school.xiaoshidi.MainActivity;
+import com.school.xiaoshidi.MyLove;
 import com.school.xiaoshidi.R;
 import com.school.xiaoshidi.SendFeedBack;
 import com.school.xiaoshidi.Setting;
-import com.school.xiaoshidi.UserManger;
+import com.school.xiaoshidai.third.UserManger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,10 @@ public class MySelf extends Fragment {
                         update_byHand();
                         break;
                     case 4:
+                        intent.setClass((MainActivity) getActivity(), MyLove.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
                         intent.setClass((MainActivity) getActivity(), Setting.class);
                         startActivity(intent);
                         break;
@@ -88,7 +93,9 @@ public class MySelf extends Fragment {
         myselfBeanList.add(myOurs);
         MyselfBean myUpdate = new MyselfBean("检查更新", R.mipmap.update_hjs,R.mipmap.right_arrow);
         myselfBeanList.add(myUpdate);
-        MyselfBean mySetting  = new MyselfBean("设        置", R.mipmap.setting,R.mipmap.right_arrow);
+        MyselfBean myLove = new MyselfBean("我喜欢", R.mipmap.love,R.mipmap.right_arrow);
+        myselfBeanList.add(myLove);
+        MyselfBean mySetting  = new MyselfBean("设置", R.mipmap.setting,R.mipmap.right_arrow);
         myselfBeanList.add(mySetting);
     }
 

@@ -9,9 +9,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请留下您的联系方式"
-        android:id="@+id/information_edt"
-        android:inputType="number"/>
+        android:hint="请留下您的联系方式（选填）"
+        android:id="@+id/information_edt" />
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"

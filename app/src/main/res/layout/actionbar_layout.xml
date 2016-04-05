@@ -6,12 +6,20 @@
     android:gravity="center">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        app:layout_marginLeftPercent="2%"
+        android:textColor="#FFFFFF"
+        app:layout_textSizePercent="40%"/>
+
+    <TextView
         android:id="@+id/actionbar_Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        app:layout_marginLeftPercent="20%"
+        app:layout_marginLeftPercent="23%"
         app:layout_textSizePercent="45%" />
 </com.zhy.android.percent.support.PercentLinearLayout>

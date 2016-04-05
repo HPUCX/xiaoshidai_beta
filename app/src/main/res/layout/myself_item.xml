@@ -14,16 +14,22 @@
         app:layout_marginLeftPercent="3%"
         app:layout_marginTopPercent="1%"
         app:layout_marginBottomPercent="1%" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_heightPercent="5%"
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_marginLeftPercent="8%"
-        android:gravity="center"
-        app:layout_textSizePercent="3%"
-        app:layout_marginTopPercent="1%"
-        app:layout_marginBottomPercent="1%"/>
+        app:layout_widthPercent="25%">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            app:layout_textSizePercent="3%"
+            app:layout_marginTopPercent="1%"
+            app:layout_marginBottomPercent="1%"
+            app:layout_heightPercent="5%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
     <ImageView
         android:id="@+id/rightImage"
         android:layout_width="wrap_content"

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:src="@mipmap/logo"
+      app:layout_heightPercent="40%"
+      app:layout_marginTopPercent="8%"
+      android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="小食代"
+        android:textSize="40sp"
+        app:layout_marginTopPercent="5%"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你其实很想吃"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        app:layout_marginTopPercent="3%"/>
+    <Button
+        android:id="@+id/btn_qq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/find_friend_icon_tencent"
+        app:layout_marginTopPercent="10%"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="10sp"
+        android:text="Copyright 2015-2016 XingSi.All Rights Reserved"
+        app:layout_marginTopPercent="6%"/>
+</com.zhy.android.percent.support.PercentLinearLayout>
